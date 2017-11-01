@@ -24,6 +24,13 @@ def first_word(phrase)
     return phrase[0,phrase.index(" ")]
 end
 
-def titleizer(phrase)
-    return phrase.titleize
+def titleize(phrase)
+    sentence = phrase.split(/ |\_|\-/)
+    sentence[0].capitalize!
+    (1..sentence.length-1).each do |i|
+        if sentence[i] != 'and' && sentence[i] != 'the'  && sentence[i] != 'over'
+            sentence[i].capitalize!
+        end
+    end
+    sentence.join(" ") 
 end
